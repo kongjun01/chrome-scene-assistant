@@ -14,7 +14,12 @@ window.addEventListener("message", function (event) {
     if (event.source !== window)
         return;
 
-    if (event.data.type && (event.data.type === "COOKIE_CHANGE")) {
-        chrome.storage.sync.set({ 'isOpenScene': true, 'cookieName': '_duibaScene', 'cookieValue': event.data.value });
+    if (event.data.type && (event.data.type === "COOKIE_MODIFY")) {
+        chrome.storage.sync.set({ 'isOpenScene': true, 'cookieName': '_duibaServiceGroupKey', 'cookieValue': event.data.value });
     }
+
+    if (event.data.type && (event.data.type === "COOKIE_INVALID")) {
+        chrome.storage.sync.set({ 'isOpenScene': false });
+    }
+
 }, false);
