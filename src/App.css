@@ -1,5 +1,16 @@
+@import '~antd/dist/antd.css';
+
 .App {
-  text-align: center;
+  font-size: 15px;
+  margin: 0px 0px;
+  width: 580px;
+}
+
+.ant-row {
+  padding: 10px 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .App-logo {
@@ -19,4 +30,23 @@
 
 .App-link {
   color: #09d3ac;
+}
+
+/* @keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+} */
+
+/* @media (max-width: 575px) {
+  .ant-form-item-control-wrapper, .ant-form-item-label {
+      width: 43%;
+  }
+} */
+
+.ant-form-item-label {
+
 }

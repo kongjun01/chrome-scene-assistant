@@ -1,25 +1,48 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
-  "icons": [
+  "name": "兑吧多场景",
+  "version": "0.0.1",
+  "description": "兑吧多场景插件",
+  "permissions": [
+    "webRequest",
+    "storage",
+    "webRequestBlocking",
+    "cookies",
+    "*://*/*"
+  ],
+  "icons": {
+    "16": "scene_16.png",
+    "48": "scene_48.png",
+    "128": "scene_128.png"
+  },
+  "browser_action": {
+    "default_icon": "scene_16.png",
+    "default_popup": "index.html"
+  },
+  "background": {
+    "scripts": [
+      "background.js"
+    ]
+  },
+  "content_scripts": [
     {
-      "src": "favicon.ico",
-      "sizes": "64x64 32x32 24x24 16x16",
-      "type": "image/x-icon"
-    },
-    {
-      "src": "logo192.png",
-      "type": "image/png",
-      "sizes": "192x192"
-    },
-    {
-      "src": "logo512.png",
-      "type": "image/png",
-      "sizes": "512x512"
+      "matches": [
+        "https://console.dui88.com/*",
+        "http://localhost:1028/*",
+        "https://console.duibadev.com.cn/*",
+        "https://console.duibatest.com.cn/*",
+        "https://ali-console.duibatest.com.cn/*",
+        "https://console.dui88pre.com/*"
+      ],
+      "js": [
+        "content-script/inject.js"
+      ],
+      "run_at": "document_idle",
+      "all_frames": true
     }
   ],
-  "start_url": ".",
-  "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
+  "options_ui": {
+    "page": "index.html"
+  },
+  "manifest_version": 2,
+  "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'"
 }
